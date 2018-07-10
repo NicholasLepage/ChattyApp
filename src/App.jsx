@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ChatBar from "./ChatBar.jsx";
 import MessageList from "./MessageList.jsx";
 import Navbar from "./Navbar.jsx";
+import { makeId } from "./helperFunctions.jsx"
 
 class App extends Component {
 
@@ -20,6 +21,17 @@ class App extends Component {
       }
     ]
 }
+
+  addNewMessage = newMessage => {
+    let newMessageItem = {
+      id: makeId(),
+      username: this.state.currentUser.name,
+      content: newMessage
+    }
+    let oldMessages = this.state.messages;
+    let newMessages = [...oldMessages, newMessageItem]
+    this.setState({messages: newMessages})
+  }
 
   componentDidMount() {
     console.log("componentDidMount <App />");
@@ -40,7 +52,7 @@ class App extends Component {
       <div>
         <Navbar />
         <MessageList messages={this.state.messages}/>
-        <ChatBar username={this.state.currentUser.name}/>
+        <ChatBar username={this.state.currentUser.name} addNewMessage={ this.addNewMessage }/>
       </div>
     );
   }
