@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import Message from './Message.jsx';
+import React, { Component } from "react";
+import Message from "./Message.jsx";
 
 const MessageList = props => {
+  // Maps through all messages and displays them.
   const fullMessageList = props.messages.map(message => {
     return (
       <Message
