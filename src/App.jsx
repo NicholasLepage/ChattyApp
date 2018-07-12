@@ -7,8 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    // TODO: Implement random colours for each user.
+    // let randomColour = [rgb(54,112,138), rgb(121,71,71), rgb(187,178,41), rgb(115,82,127), rgb(104,219,139)]
+
     this.state = {
-      currentUser: { name: "Anonymous", color: "black" },
+      currentUser: { name: "Anonymous" },
       messages: [],
       onlineUsers: null
     };

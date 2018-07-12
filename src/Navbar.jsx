@@ -6,7 +6,8 @@ const Navbar = props => {
       <a href="/" className="navbar-brand">
         Chatty
       </a>
-      <h4 className="navbar-users">{props.onlineUsers} online user(s) </h4>
+      <img src="./src/docs/chickin.png" className="line-art" />
+      <div className="navbar-users">{props.onlineUsers} online users </div>
     </nav>
   );
 };
