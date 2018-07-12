@@ -7,6 +7,7 @@ const MessageList = props => {
     return (
       <Message
         key={message._id}
+        type={message.type}
         username={message.username}
         content={message.content}
       />

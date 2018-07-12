@@ -1,11 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-class Navbar extends Component {
-  render() { return (
+const Navbar = props => {
+  return (
     <nav className="navbar">
-      <a href="/" className="navbar-brand">Chatty</a>
+      <a href="/" className="navbar-brand">
+        Chatty
+      </a>
+      <h4 className="navbar-users">{props.onlineUsers} online user(s) </h4>
     </nav>
-  )}
-}
+  );
+};
 
 export default Navbar;

@@ -26,22 +26,56 @@ wss.broadcast = data => {
   });
 };
 
+// Takes care of creating an ID for received data, re-stringifies it, and broadcasts it
+const createIdStringify = data => {
+  data._id = uuidv4();
+  return (unparsedData = JSON.stringify(data));
+};
+
+// Checks the current amount of connected users and broadcasts it to everyone.
+const sendOnlineUsers = () => {
+  let clientSize = {
+    type: "incomingSize",
+    online: wss.clients.size
+  };
+  createIdStringify(clientSize);
+  wss.broadcast(unparsedData);
+};
+
 // Set up a callback that will run when a client connects to the server
 // When a client connects they are assigned a socket, represented by
 // the ws parameter in the callback.
 wss.on("connection", ws => {
   console.log("Client connected");
 
+  sendOnlineUsers();
+
   ws.onmessage = e => {
     let parsedData = JSON.parse(e.data);
-    parsedData._id = uuidv4();
-    let unparsedData = JSON.stringify(parsedData);
 
-    console.log(`user ${parsedData.username} says ${parsedData.content}`);
+    switch (parsedData.type) {
+      case "postMessage":
+        parsedData.type = "incomingMessage";
+        createIdStringify(parsedData);
 
-    wss.broadcast(unparsedData);
+        wss.broadcast(unparsedData);
+        break;
+
+      case "postNotification":
+        parsedData.type = "incomingNotification";
+        createIdStringify(parsedData);
+
+        wss.broadcast(unparsedData);
+        break;
+
+      default:
+        break;
+    }
   };
 
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on("close", () => console.log("Client disconnected"));
+  ws.on("close", () => {
+    console.log("Client disconnected");
+    sendOnlineUsers();
+  });
 });
