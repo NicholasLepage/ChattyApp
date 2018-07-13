@@ -66,6 +66,10 @@ class App extends Component {
 
       switch (msg.type) {
         case "incomingMessage":
+          let regex = (/\.(gif|jp?g|png|svg|bmp|tiff|bat)$/i);
+          if (regex.test(msg.content)) {
+            msg.type = "image";
+          }
           storeMessage(msg);
           scrollToBottom();
 

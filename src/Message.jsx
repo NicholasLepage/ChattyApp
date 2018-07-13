@@ -17,6 +17,15 @@ const Message = props => {
           <span className="message system">{props.content}</span>
         </div>
       );
+
+      case "image":
+        return (
+          <div className="message">
+            <span className="message-username">{props.username}</span>
+            <img className="imageSent" src={props.content}/>
+          </div>
+        )
+
     default:
       break;
   }

@@ -45,7 +45,6 @@ input:focus {
 }
 
 .message {
-  display: flex;
   padding: 5px;
 }
 
@@ -64,13 +63,12 @@ input:focus {
 }
 
 .message-content {
+  padding-left: 60px;
   font-size: 16px;
-  flex: 8;
 }
 
 .message-username {
   font-size: 18px;
-  flex: 2;
   font-weight: 700;
 }
 
@@ -113,4 +111,12 @@ input:focus {
 .line-art {
   width: 250px;
   height: 60px;
+}
+
+.imageSent {
+  padding-left: 60px;
+  max-width:500px;
+  max-height:200px;
+  width: auto;
+  height: auto;
 }
