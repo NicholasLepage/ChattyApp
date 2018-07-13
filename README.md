@@ -7,18 +7,18 @@ A single-page chat-room built using React and WebSockets.
 
 * Messages are sent and broadcasted to all connected users.
 * Displays the number of connected users.
+* Users can send pictures using links.
 
  #### Future update
  
  * Users will be assigned a color.
- * Users will be able to send pictures using links.
-
 
 ## Screenshots of final product
 
 !["Screenshot of Chatty App"](https://github.com/NicholasLepage/ChattyApp/blob/master/docs/Chatty1.png)
 !["Scrolling"](https://github.com/NicholasLepage/ChattyApp/blob/master/docs/Peek%202018-07-13%2013-07.gif)
 !["Empty message/Username"](https://github.com/NicholasLepage/ChattyApp/blob/master/docs/Peek%202018-07-13%2013-11__2.gif)
+!["Gif sending"](https://github.com/NicholasLepage/ChattyApp/blob/master/docs/Peek%202018-07-13%2014-27_img.gif)
 
 
 Installation
