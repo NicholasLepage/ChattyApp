@@ -60,14 +60,20 @@ class App extends Component {
         this.setState({ messages: newMessages });
       };
 
+      const scrollToBottom = () => {
+        window.scrollTo(0,document.body.scrollHeight);
+      }
+
       switch (msg.type) {
         case "incomingMessage":
           storeMessage(msg);
+          scrollToBottom();
 
           break;
 
         case "incomingNotification":
           storeMessage(msg);
+          scrollToBottom();
 
           break;
 

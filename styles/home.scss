@@ -101,6 +101,7 @@ input:focus {
 }
 
 .navbar-users {
+  user-select: none;
   font-size: 20px;
   color: inherit;
   display: block;
